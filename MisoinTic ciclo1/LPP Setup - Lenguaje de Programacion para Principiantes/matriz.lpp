@@ -1,0 +1,132 @@
+arreglo [3,3] de entero m
+entero f, c, j, i, mayorpc, mayorpf,menorpc, menorpf, sumae, sumad, mayor, menor, temp, opcion, filas, columnas
+
+inicio
+	//llenado de matriz//
+	escriba "Ingrese el numero de filas deseadas: "
+	lea filas
+	llamar nueva_linea
+	escriba "Ingrese el numero de columnas deseadas: "
+	lea columnas
+	llamar nueva_linea
+	escriba "Ingrese numeros en la matriz: "
+	llamar nueva_linea 
+	para f<- 1 hasta filas haga
+	 	para c<- 1 hasta columnas haga
+	 		lea m[f,c]
+ 				si c=columnas entonces
+ 					llamar nueva_linea
+ 				fin si
+	 	fin para
+	 fin para
+	 //opciones del usuario//
+	 escriba "Si desea ordenar la matriz presione: 1." 
+	 llamar nueva_linea 
+	 escriba "Sumar matriz: 2." 
+	 llamar nueva_linea 
+	 escriba "Sumar diagonal principal: 3." 
+	 llamar nueva_linea 
+	 escriba "Encontrar la posicion del mayor y el menor: 4."
+	 llamar nueva_linea
+	 escriba "mostrar matriz: 5."
+	 llamar nueva_linea
+	 
+	sumad<-0
+	sumae<-0
+	temp <-0
+	lea opcion
+	caso opcion
+	1:
+	 //ordenar matriz//
+	  
+	 Para  i<- 1 hasta filas haga
+		Para  j<- 1 hasta columnas haga
+			Para  f<- 1 hasta filas haga
+				para c<-  1 hasta columnas  haga
+					Si  m[f,c] > m[f,c + 1] entonces
+						Temp<- m[f,c + 1]
+						m[f,c + 1]<- m[f,c]
+						m[f,c]<- Temp
+					FIN si
+				FIN para
+				Si  (c = columnas) y (f= filas) Entonces
+					Si m[f,c] > m[f + 1,1] entonces
+						Temp<- m[f,c]
+						m[f,c]<- m[f + 1, 1]
+						m[f + 1,1]<- Temp
+					FIN si
+				FIN si
+			FIN para		
+		FIN para
+	FIN para
+	
+	//mostrar matriz//
+	escriba "matriz ordenada: "
+	llamar nueva_linea
+	para f<- 1 hasta filas haga
+ 		para c<- 1 hasta columnas haga
+ 				
+ 				escriba m[f,c]
+ 				si c=columnas entonces
+ 					llamar nueva_linea
+ 				fin si
+ 		fin para
+ 	fin para
+ 	
+ 	2:	//suma elementos//
+ 	para f<- 1 hasta filas haga
+	 	para c<- 1 hasta columnas haga
+	 		sumae<- sumae + m[f,c]
+	 	fin para
+	 fin para
+	 escriba "la suma de los elementos es: ", sumae
+ 	
+ 	3:// suma diagonal principal//
+ 	para f<- 1 hasta filas haga
+	 	para c<- 1 hasta columnas haga
+	 		si f = c entonces
+	 			sumad<-sumad + m[f,c]
+	 		fin si
+	 	fin para
+	 fin para
+	 escriba "la suma de la diagonal principal es: ", sumad
+	 4: // posicion mayor y menor//
+	 	mayor<-m[1,1]
+		menor<-m[1,1]
+		mayorpf<-1
+ 		mayorpc<-1
+ 		menorpf<-1
+		menorpc<-1
+
+		Para F <- 1 hasta filas haga
+			Para C <- 1 hasta columnas haga
+				Si  m [f,c]> mayor entonces
+					mayor<-m[f,c]
+					mayorpf<-f
+ 					mayorpc<-c
+				sino
+					si m[f,c] < menor entonces
+						menor<-m[f,c]
+						menorpf<-f
+						menorpc<-c
+					FiN si
+				Fin si
+			FIN para
+		FIN para
+		Escriba "el numero mayor es: ", Mayor, " y se encuentra en la posicion: ", "fila: ", mayorpf,", columna: " ,mayorpc
+		llamar nueva_linea
+		Escriba "el numero menor es: ", Menor, " y se encuentra en la posicion: ", "fila: ", menorpf,", columna: ", menorpc
+	5: //mostrar matriz//
+			llamar nueva_linea
+	para f<- 1 hasta filas haga
+ 		para c<- 1 hasta columnas haga
+ 				
+ 				escriba m[f,c]
+ 				si c=columnas entonces
+ 					llamar nueva_linea
+ 				fin si
+ 		fin para
+ 	fin para 
+fin caso 
+	 
+ Fin

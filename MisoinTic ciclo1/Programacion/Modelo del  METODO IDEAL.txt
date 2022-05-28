@@ -1,0 +1,100 @@
+                      Modelo 
+
+
+Objetivo
+En este laboratorio vamos a unificar todos los conceptos sobre programación que hemos visto esta semana, incluyendo:
+
+Variables
+Tipos de datos
+Entrada y salida
+Funciones
+Retorno de valores
+Parametros
+Modulo principal
+Todos ellos aplicando el proceso IDEAL
+
+La tienda de la esquina
+Contexto
+En la tienda “de la esquina” su administrador dueño y gerente don Jose Esquina, desea un programa que le permita realizar 
+las 4 operaciones aritméticas básicas (i.e., suma, resta, multiplicación y división) el asegura que son las únicas que necesita 
+para controlar sus ventas y que a pesar de que siempre lo ha hecho mentalmente, los años están haciendo mella en él y necesita apoyo de la tecnología.
+
+Para probar si podemos cumplir con sus requisitos por ahora solo desea un programa que haga las 4 operaciones aritméticas para un par de números
+reales, y que muestre el resultado de cada una en órden:
+
+Suma
+Resta
+Multiplicación
+División
+Identificar el problema
+¿Cuál es el problema/objetivo?
+
+Don José tiene problemas para realizar las cuentas de su tienda
+
+¿Quiénes son los interesados?
+
+(cliente) Don José
+(usuario) Don José
+
+¿Cuál es el objetivo?*
+Realizar las 4 operaciones aritméticas
+
+¿Se tienen restricciones?*
+No
+Definir el problema
+¿Qué información conozco (que nos dan)?
+
+Se dan dos números reales
+Las 4 operaciones aritméticas
+¿Qué información debo conocer (para lograr el objetivo)?
+
+Los dos numeros reales
+Los operadores para las 4 operaciones aritméticas
+Dividir el problema en subproblemas
+
+Solicitar los dos numeros reales
+Calcular la suma de los dos números
+Calcular la resta de los dos números
+Calcular la multiplicación entre los dos números
+Calcular la división entre los dos números
+Estrategia
+Ejemplos particulares
+
+numero uno = 20.0 numero dos = 10.0
+
+suma = 20.0 + 10.0 (30.0)
+resta = 20.0 - 10.0 (10.0)
+multiplicación = 20.0 * 10.0 (200.0)
+división = 20.0 / 10.0 (2.0)
+Estrategia de solución
+
+Leer los dos numeros
+Realizar en el órden especificado las 4 operaciones y mostrar cada resultado
+Algoritmos
+Requisitos de software
+
+Algoritmo: sumar dos numeros
+Parametros: numero_uno, numero_dos
+
+suma = numero_uno + numero_dos
+Retornar suma
+Algoritmo: restar dos numeros
+
+Parametros: numero_uno, numero_dos
+
+resta = numero_uno - numero_dos
+Retornar resta
+Algoritmo: multiplicar dos numeros
+
+Parametros: numero_uno, numero_dos
+
+multiplicacion = numero_uno * numero_dos
+Retornar multiplicacion
+Algoritmo: dividir dos numeros
+
+Parametros: numero_uno, numero_dos
+
+division = numero_uno / numero_dos
+Retornar division
+Logros
+Implementar los algoritmos en Python

@@ -1,0 +1,36 @@
+//llenar un vector de n numeros//
+
+
+
+Entero i,cantidadnumeros,suma, contnegativos
+Arreglo  [100] de entero numero  
+real promedio
+Inicio
+   escriba "la catidad de numeros que contiene el vector es de : "
+   lea cantidadnumeros
+      Para i <-1 hasta cantidadnumeros Haga
+        escriba "el numero del vector en la posicion ",i," es : "
+        lea numero[i]
+      Fin  Para
+      
+//luego de llenar el vector decir cual es el promedio de este//
+  suma<-0    
+      Para i <-1 hasta cantidadnumeros Haga
+        suma<-suma+numero[i]
+      Fin  Para
+       promedio<-suma/cantidadnumeros
+       escriba "el promedio de los numeros es : ",promedio
+
+llamar nueva_linea
+llamar nueva_linea
+llamar nueva_linea
+//determinar que numeros y en que posicion del vector son negativos//
+ 
+ contnegativos<-0
+      Para i <-1 hasta cantidadnumeros Haga
+        si numero [i] < 0 entonces
+          escriba "el numero es ",numero[i]," es negativo y esta  en la posicion ",i 
+        fin si
+      Fin  Para
+    
+ Fin

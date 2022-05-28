@@ -1,0 +1,205 @@
+         *******     ALGORITMO  ************
+Mostrar una breve presentacion de la calculadora saludable al usuario
+1. peso ideal
+2. calorias quemadas
+3. porcentaje de grasa corporal
+4. indice metabolico basal
+5. salir
+
+'''este es la respuesta al desarrollo del reto 2
+Objectivo: realizar una aplicacion para calcular tosas 
+           las metricas de la calculadora saludable.
+
+Identificar el problema
+  ¿cual es el problema o objectivo? desarollar una 
+    aplicacion que nos ayude a indicar cual es el 
+    calculo de algunas metricas de estado fisico
+  ¿quienes son los interesados? 
+    * (cliente)Gente fitness
+    * (Usuario)Gente fitness
+Definir el problema
+   ¿ que informacion conozco?  nos dan las formulas 
+   para calcular las diferentes metricas
+   ¿que informacion debo conocer? los datos del usuario 
+   como peso, altura, edad, tiempo de actividad(min) 
+   como datos de entrada.
+Dividrir el programa en subproblemas
+   * solicitar el valor del usario: peso, altura, edad, 
+      tiempo de actividad 
+   * calcular el peso ideal
+   * calcular cantidad de calorias quemadas
+   * calcular porcentaje de grasa corporal
+   * calcular indice metabolico Basal
+Estrategia
+    1. ejemplos particulares
+      * altura =172
+      peso ideal(67 kilos) = 56.2+1.41*(172/2.54-60)
+      * tiempo actividad =30, MET = 6(correr), peso 82
+      calorias quemadas =(307*6*82/200)
+      * porcentaje de grasa corporal 
+      peso =82, altura =172, edad =34, IMC = 82/1,72**2
+      hombres adultos= 120* 27.7+ 0.23* 34 -16.2
+      mujeres adultas= 120* 27.7+ 0.23* 34 - 5.4
+      *indice metabolico basal
+      peso= 80(kl), altura = 172(cm), edad= 34(años)
+      hombres adultos =
+      mujeres adultos =
+    2. estrategia de solucion
+      * ingresar los datos de entrada necesaios para 
+      cada clauculo requerido
+      hombre= 13.397*P+ 4.799*E- 5.677*A+88.362
+      mujeres = 9.247*p+ 3.098*E-4.330*A+447.593
+      * realizar los cuatros operaciones del usuario 
+        de las metricas para la claculadora saludable
+
+______________________________________________________
+         *******     ALGORITMO  ************
+Mostrar una breve presentacion de la calculadora saludable al usuario
+1. peso ideal
+2. calorias quemadas
+3. porcentaje de grasa corporal
+4. indice metabolico basal
+5. salir
+
+requisitos del software
+    * algoritmo peso ideal: 
+        parametros: altura
+1. obtener sexo del usuario        
+2. calcular el peso ideal
+        3. monstrar peso peso idial 
+    * algoritmo  calorias quemadas
+        parametros: tiempo de actividad, MET(escoger 
+        cual activiad), peso
+        1. obtener que tipo de activida realiza el 
+        usuario
+        2. calcular calorias quemadas
+        3. Monstrar el resultado del calculo
+    * algoritmo porcentaje de grasa corporal 
+        1. obtener peso, altura, edad, sexo del usaurio
+        2. calcular IMC 
+        3. obtener el sexo del usuario sugun este 
+        requerimiento va ir a realizar diferente calculo
+        4. calcular porcentaje de grasa corporal segun 
+        su sexo
+        5. mostrar el resultado usuario
+    * algoritmo indice metabolico basal
+        1. obtener peso, altura, edad del usaurio
+        2. obtener el sexo del usuario sugun este 
+        requerimiento va ir a realizar diferente calculo
+        4. calcular porcentaje de grasa corporal segun 
+        su sexo
+        5. mostrar el resultado al usuario 
+________________________________________________________
+'''
+#funcion para ingresar los datos del usuario por teclado
+def calculadora():
+  global peso, edad, sexo, altura
+  peso = int(input("ingrese su peso en kilos: "))
+  edad =int(input("ingrese su edad  en años: "))
+  sexo = input("ingrese su sexo, si es masculino M, femenino F ")
+  altura = float(input("ingrese su altura en metros(con decimales): "))
+
+#funcion para peso ideal
+def calcular_peso_ideal(altura):
+  if (sexo == "M"):
+    resul = round(56.2+1.41*(altura/2.54-60))
+    print("estimado usaurio peso ideal es", resul, " kilos aproximadamente")
+  elif (sexo == "F"):
+    resul = 53.1+1.36*(altura/2.54-60)
+    print("estimada usauria peso ideal es"+ resul)
+  else:
+    print("dato invalido. vuelve a iniciar el programa")
+    
+#funcion 
+#funcion para peso ideal
+def calcular_porcentaje_grasa_corporal(altura):
+#Defimos valores del MET que son constantes para ver cual es la actividad fisica que realiza el usurio
+  caminar, tenis, montar_bici, correr, nadar= 2,5,14,6,9.8
+  tipo_activ = int(input("""ingrese el tipo de actividad fisca 
+                            1. caminar
+                            2. tenis
+                            3. montar bicicleta, 
+                            4. correr
+                            5. nadar
+  """))
+  #realivazamos una comparacion para validar a que corresponde el valor MET
+  if tipo_activ== 1:
+    tipo_activ = caminar
+  if tipo_activ == 2:
+    tipo_activ = tenis
+  if tipo_activ == 3:
+    tipo_activ = montar_bici
+  if tipo_activ == 4:
+    tipo_activ =correr
+  if tipo_activ == 5:
+    tipo_activ = nadar
+
+  #tiempo de actividad fisica
+  tiempo_acti = int(input("indica la cantidad de tiempo en minutos de actividad fisica "))
+  print(tipo_activ)
+
+  resul=  (tiempo_acti*tipo_activ * peso)/200
+  print("la cantidad de porcentaje de grasa corporal es ",resul)
+  
+# funcion porcentaje de grasa corporal
+def cal_porce_grasa_corporal(edad, peso, sexo, altura):
+  IMC = peso/altura**2
+  
+  if (sexo == "M"):
+    resul = 1.20*int(IMC)+ 0.23* edad-16.2
+    print("estimado usaurio su porcentaje de masa corporal es", resul, " aproximadamente")
+  elif (sexo == "F"):
+    resul = round(1.20*IMC+ 0.23* edad-5.4)
+    print("estimada usauria su porcentaje de masa corporal es"+ resul)
+  else:
+    print("dato invalido no vuelve a iniciar el programa")
+
+# funcion indice metabolico basal
+def cal_indice_metabolico_basal(edad, peso, sexo, altura):
+  
+  if (sexo == "M"):
+    resul = round(13.397*peso+ 4.799*edad- 5.677*altura+88.362)
+    print("estimado usaurio su porcentaje de masa corporal es", resul, " aproximadamente")
+  elif (sexo == "F"):
+    resul =  round(9.247*peso+ 3.098*edad-4.330*altura+447.593)
+    print("estimada usauria su porcentaje de masa corporal es", resul, " aproximadamente")
+  else:
+    print("dato invalido no vuelve a iniciar el programa")
+
+#monstrar al usuario el Menu de bienvenida al programa
+print(""" *****  bienvenido a su calculadora saludable   ******
+Menu principal, por favor selccione una opcion de calculo:
+1. peso ideal
+2. calorias quemadas
+3. porcentaje de grasa corporal
+4. indice metabolico basal
+5. salir""")
+
+#almacenamos la respuesta en la variable opc
+opc = int(input())
+
+#llamanos la funcion de la caluldora peso ideal
+if opc ==1:
+  altura= int(input("ingrese su altura en centrimetros: "))
+  sexo = input("ingrese su sexo, si es masculino M, femenino F ")
+  calcular_peso_ideal(altura)
+
+if opc ==2:
+  peso = int(input("ingrese su peso en kilos: "))
+  calcular_porcentaje_grasa_corporal(peso)
+
+if opc ==3:
+  calculadora()
+  cal_porce_grasa_corporal(edad, peso, sexo, altura)
+
+if opc ==4:
+  print("""Nota: la formula no estaba tan clara en el taller
+        hombre= 13.397*P+ 4.799*E- 5.677*A+88.362
+        mujeres = 9.247*p+ 3.098*E-4.330*A+447.593"""
+      )
+  calculadora()
+  cal_indice_metabolico_basal(edad, peso, sexo, altura)
+if opc ==5:
+  print("programafinalizado")
+else:
+  print("opcion invalidad. vuelva a ingresar")

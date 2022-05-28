@@ -1,0 +1,29 @@
+modulos en payton
+   Str
+      *  len(cat)  -----> variable cat longitud str = cantidad
+      * .strip()   -----> elimina los espacios en blanco si son al comienzo
+      * .lower()   -----> convierte cadena todo a minuscula
+      * .upper()   -----> convierte una cadena a mayusculas
+      * .isdigit() -----> si es positivo un numero o solo digitos
+      * .istitle   -----> si la primera letra es mayuscila 
+      * .isalpha() -----> 
+      * .isalmun() ----->
+      * .isdigit() -----> True: si todos los caracteres de la cadena son dígitos.
+      * .capitalize() --> devuelve una copia de la cadena original y convierte el primer carácter de la cadena en una 
+                          letra mayúscula mientras convierte todos los demás caracteres de la cadena en minúsculas
+      * .lower()   -----> convertir en minuscula cadena
+      * .strip()   -----> omitir los carecteres vacios de un str
+      * .find("@") -----> ejemplo de encontar un caracter en especial pero su posicion
+      * .count("o")) ---> cantidad de veces de un caracter "o"
+      
+
+   Listas
+      *  .append  ---> agregar un elemento a una lista
+      *  .extend  ---> agregar varios elementos a una lista
+      *  .insert  ---> ingresar en una posicion dada  .insert(2, dato)
+      *  .remove  ---> borar un elemento pero solo en su primera incidencia
+      *  .reverse ---> los ultimos seran primeros: los invierte 
+      *  .copy    ---> retorna una copia de la lista 
+      *  .sort    ---> ordena la lista alfabeticamente o numericamente 
+      *  .clear   ---> borrar los elementos de una lista 
+      *  .cont    ---> cuenta la cantidad de veces que se repite cierto elemento

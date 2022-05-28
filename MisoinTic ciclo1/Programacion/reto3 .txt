@@ -1,0 +1,48 @@
+* Diagnosticar el problema.
+* Encontrar los requerimientos o necesidades 
+* Realizar el algoritmo o Diagrama de Flujo
+
+'
+''Crear una aplicación utilizando funciones, condicionales, manejo de string, modulos y los temas vistos en la formación.  Se debe solicitar un USUARIO con una cadena de 10 caracteres que debe cumplir con las siguientes restricciones y las cuales deben ser validadas por el programa unavez se ingresa:  
+
+  • Se debe veriﬁcar que el USUARIO sea de tipo str exclusivamente y
+    con dígitos numéricos y caracteres especiales
+  • En la posición 6 y 8 de la cadena del USUARIO debe ir siempre el
+    carácter arroba (‘@’)
+  • El carácter en la primera posición y el carácter en la última
+    posición del USUARIO deben ser diferentes.
+  • El USUARIO no debe contener espacios
+  • El código USUARIO no debe contener más de 3 veces la letra ’k’ 
+
+Crear una lista con 4 usuario definidos por usted y los valide con el usuario que se esta capturando, en caso que ya exista debe enviar un mensaje El usuario ya existe, de lo contrario debe continuar
+
+
+Si el USUARIO no cumple con alguna de estas reglas se debe presentar
+el mensaje “USUARIO inválido” 
+
+En caso contrario se le deben hacer las siguientes preguntas: 
+ 
+  • Fecha de Nacimiento (en formato DD/MM/AAAA)
+   (la edad del jugador debe ser mayor a 12 años y debes calcularla)
+  • Si la edad es correcta debes preguntar los siguientes datos:
+
+   - Alias del jugador (Una cadena de caracteres de una longitud mínima 
+     de 5 y máxima de 9, sin espacios y solo letras)
+   - ¿Preguntar Ya has jugado WorldCraft ASCII? (Si, No)
+   - Si ya ha jugado antes debe preguntarle:
+     ¿Hasta que nivel llegaste? (el nivel va desde 1 hasta 10)
+   - Si no ha jugado antes debe ser enviado el nivel 1 del juego.
+     
+   - Si ya ha jugado debe ser enviado al nivel que tenía antes más 2 y 
+     mostrar en que nivel quedo. 
+
+NOTA: tenga en cuenta que la edad del jugador no se debe solicitar     directamente pero si su fecha de nacimiento. 
+
+Cuando un nuevo jugador es admitido al WorldCraft ASCII se le debe asignar un Mundo para iniciar a jugar de acuerdo a las siguientes reglas: 
+
+    • Mundo 1: Jugadores entre 12 y 18 años
+    • Mundo 2: Jugadores entre 19 y 25 años
+    • Mundo 3: Jugadores entre 26 y 35 años
+    • Mundo 5: Jugadores mayores a 35 años
+
+Cuando el usuario sea aceptado se le mostrará en pantalla en que Mundo quedo dandole la Bienvenida'''

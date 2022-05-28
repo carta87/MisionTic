@@ -1,0 +1,40 @@
+
+//Elaborar un algoritmo que Lea el nombre y la edad de los alumnos de la institución.
+//Se debe imprimir el nombre y la edad del alumno mayor y el nombre y la edad del alumno menor.
+
+Cadena [50] nombre, nmayor, nmenor
+Entero edad, edadmayor, edadmenor, nalumnos, i
+
+INICIO
+	Escriba "Ingrese numero de alumnos: "
+	Lea nalumnos
+	Escriba "Ingrese Nombre: "
+	Lea nombre
+	Escriba "Ingrese Edad: "
+	Lea edad
+	edadmayor<-edad
+	edadmenor<-edad
+	nmayor<-nombre
+	nmenor<-nombre
+	
+	Para i<-1 Hasta nalumnos-1 Haga
+		Escriba "Ingrese Nombre: "
+		Lea nombre
+		Escriba "Ingrese Edad: "
+		Lea edad
+		
+		Si edad>edadmayor Entonces
+			edadmayor<-edad
+			nmayor<-nombre
+		SiNo
+			Si edad<edadmenor Entonces
+				edadmenor<-edad
+				nmenor<-nombre
+			Fin Si
+		Fin Si
+	Fin Para
+	
+	Escriba "El alumno menor es: ", nmenor, ", La edad: ", edadmenor
+	Llamar nueva_linea
+	Escriba "El alumno mayor es: ", nmayor, ", La edad: ", edadmayor
+FIN

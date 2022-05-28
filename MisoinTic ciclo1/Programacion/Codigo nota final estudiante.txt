@@ -1,0 +1,50 @@
+'''Utilizando funciones y toma de decisiones realizar un programa que muestre en pantalla si un estudiante gana o pierde una materia. Se debe capturar por teclado el nombre del estudiante, la materia y 5 notas las cuales se promediaran y al final se indicará si gana, pierde o queda nivelando así:
+* Si la definitiva queda entre 4.1 y 5.0 Gana, 
+* Si queda entre 3.2 y 4.0 nivela 
+* Si es menor a estas pierde.'''
+
+#presentacion del menu del programa
+def menu_calificaion_est():
+  print(
+   """************    BIENVENIDO      ******************
+   Programa para calcular nota final de estudiante
+        
+       por favor ingrese los siguientes
+           datos del estudiante            
+    
+    """)
+
+#metodo para ingresesar los datos de entrada necesarios para ser utilizados a lo largo del programa
+def ingresar_datos_est():
+  global nom, materia, not1, not2, not3, not4, not5, prom
+  nom = input("  ingrese su nombre: ")
+  materia = input("  ingrese la materia: ")
+  not1 = float(input("  ingrese su nota 1: "))
+  not2 = float(input("  ingrese su nota 2: "))
+  not3 = float(input("  ingrese su nota 3: "))
+  not4 = float(input("  ingrese su nota 4: "))
+  not5 = float(input("  ingrese su nota 5: "))
+  prom = round((not1 +not2 +  not3 +  not4 +not5)/5,2)
+
+#metodo para realizar la validacion de la calificacion final y monstrara un mensaje con Materia, resultado, Promedio y nombre 
+def validacion_prom_est(prom):
+  if(prom >= 4.1)and (prom <= 5.0):
+    print("""
+Fecitaciones """ , nom, "ha aprobado la materia ", 
+    materia, " con el promedio ",  prom )
+  elif(prom >= 3.2) and (prom <= 4.0):
+    print("""
+  El estudiante""", nom, " debera nivelar la ", 
+    materia, " por que su promedio es ",  prom )
+  else:
+    print("""
+  El estudiante""", nom, " ha perdido la materia ", 
+    materia, " por que su promedio es ",  prom )
+    
+#se llaman los metodos que realizaran el programa
+menu_calificaion_est()
+ingresar_datos_est()
+validacion_prom_est(prom)
+print("""
+      ************ FIN DEL  PROGRAMA   *****************
+            Estudiante Carlos Alberto Tafur """)
