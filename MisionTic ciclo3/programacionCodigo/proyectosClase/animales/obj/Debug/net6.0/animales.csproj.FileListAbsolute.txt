@@ -1,0 +1,5 @@
+C:\Users\USUARIO\Documents\MisionTic\MisionTic ciclo 3\programacion\programacion\holamundo\animales\obj\Debug\net6.0\animales.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Documents\MisionTic\MisionTic ciclo 3\programacion\programacion\holamundo\animales\obj\Debug\net6.0\animales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Documents\MisionTic\MisionTic ciclo 3\programacion\programacion\holamundo\animales\obj\Debug\net6.0\animales.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Documents\MisionTic\MisionTic ciclo 3\programacion\programacion\holamundo\animales\obj\Debug\net6.0\animales.AssemblyInfo.cs
+C:\Users\USUARIO\Documents\MisionTic\MisionTic ciclo 3\programacion\programacion\holamundo\animales\obj\Debug\net6.0\animales.csproj.CoreCompileInputs.cache

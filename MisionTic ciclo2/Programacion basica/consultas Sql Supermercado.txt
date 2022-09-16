@@ -1,0 +1,158 @@
+create Database ADMIN_SUPERMERCADO
+drop Database  ADMIN_SUPERMERCADO
+
+CREATE TABLE tb_direcciones(
+ IdDirreccion INT AUTO_INCREMENT PRIMARY KEY,
+ CalleCarrera VARCHAR(20) NOT NULL,
+ Numero VARCHAR(20) NOT NULL,
+ Barrio VARCHAR(20) NOT NULL,
+ Ciudad VARCHAR(20) NOT NULL
+)
+
+CREATE TABLE tb_proveedores(
+ IdProveedor INT AUTO_INCREMENT PRIMARY KEY,
+ Nit VARCHAR(20) NOT NULL,
+ RazonSocial VARCHAR(20) NOT NULL,
+ Telefono VARCHAR(20) NOT NULL,
+ CorreoElectronico VARCHAR(100) NOT NULL,
+ RepresentanteLegal VARCHAR(100) NOT NULL,
+ SitioWeb VARCHAR(50) NOT NULL,
+ idDirreccion INT NOT NULL,
+FOREIGN KEY(idDirreccion) REFERENCES tb_direcciones(IdDirreccion))
+
+CREATE TABLE tb_productos(
+ IdProducto INT AUTO_INCREMENT PRIMARY KEY,
+ Nombre VARCHAR(20) NOT NULL,
+ PrecioActual VARCHAR(20) NOT NULL,
+ Existencia INT NOT NULL,
+ idProveedor INT NOT NULL,
+FOREIGN KEY(idProveedor) REFERENCES tb_proveedores(IdProveedor))
+
+CREATE TABLE tb_clientes(
+ IdCliente INT AUTO_INCREMENT PRIMARY KEY,
+ DocumentoIden  VARCHAR(20) NOT NULL,
+ NombreCli VARCHAR(40) NOT NULL,
+ ApellidosCli VARCHAR(40) NOT NULL,
+ TelefonoClie1 VARCHAR(20) NOT NULL,
+ TelefonoClie2 VARCHAR(20) NOT NULL,
+ idDirreccion INT NOT NULL,
+FOREIGN KEY(idDirreccion) REFERENCES tb_direcciones(IdDirreccion))
+
+CREATE TABLE tb_categorias (
+ IdCategoria INT AUTO_INCREMENT PRIMARY KEY,
+ NombreCate VARCHAR(40) NOT NULL,
+ DescripcionGeneral VARCHAR(100) NOT NULL,
+ idProducto INT NOT NULL,
+FOREIGN KEY(idProducto) REFERENCES tb_productos(IdProducto))
+
+CREATE TABLE tb_DescuentoMediopago (
+ IdDescuMedioPago INT AUTO_INCREMENT PRIMARY KEY,
+ PorcentajeDesc INT NOT NULL,
+ ValorSinDescuento INT NOT NULL,
+ ValorConDescuento INT NOT NULL)
+
+CREATE TABLE tb_mediopago (
+ IdMedioPago INT AUTO_INCREMENT PRIMARY KEY,
+ Credito VARCHAR(2) NOT NULL,
+ Efectivo VARCHAR(2) NOT NULL,
+ TarjetaDebito VARCHAR(2) NOT NULL,
+ TarjetaCredito VARCHAR(2) NOT NULL,
+ idDesMedioPago INT NOT NULL,
+FOREIGN KEY(idDesMedioPago) REFERENCES tb_DescuentoMediopago(IdDescuMedioPago))
+
+CREATE TABLE tb_tb_ventas (
+ IdVenta INT AUTO_INCREMENT PRIMARY KEY,
+ FechaVenta VARCHAR(20) NOT NULL,
+ DescripcionGeneral VARCHAR(100) NOT NULL,
+ ValorDescuento INT NOT NULL,
+ ValorTotal INT NOT NULL,
+ idDetalleVenta  INT NOT NULL,
+ FOREIGN KEY(idDetalleVenta) REFERENCES tb_detalleventa(IdDetalleVenta))
+
+CREATE TABLE tb_detalleventa (
+ IdDetalleVenta INT AUTO_INCREMENT PRIMARY KEY,
+ idClente INT NOT NULL,
+ idProducto INT NOT NULL,
+ idMedioPago INT NOT NULL,
+ FOREIGN KEY(idClente) REFERENCES tb_clientes(IdCliente),
+ FOREIGN KEY(idProducto) REFERENCES tb_productos(IdProducto),
+ FOREIGN KEY(idMedioPago) REFERENCES tb_mediopago(IdMedioPago)) 
+
+
+INSERT INTO `tb_direcciones` (`IdDirreccion`, `CalleCarrera`, `Numero`, `Barrio`, `Ciudad`) VALUES (NULL, 'calle', '27 a 56', 'Terron', 'Valledupar'),
+(NULL, 'carerra', '79 a 56', 'Lucero', 'Medellin'), 
+(NULL, 'carreta', '67 a 89', 'Madrid', 'Cali'), 
+(NULL, 'calle', '56 a 56', 'Aurora', 'Armenia'),
+(NULL, 'carreta', '122 a 83', 'Castellana', 'Pereira'), 
+(NULL, 'calle sur', '18 h 49', 'vista hermosa', 'bogota');
+
+INSERT INTO `tb_proveedores` (`IdProveedor`, `Nit`, `RazonSocial`, `Telefono`, `CorreoElectronico`, `RepresentanteLegal`, `SitioWeb`, `idDirreccion`) VALUES 
+(NULL, '890658098', 'Natural', '25098900', 'adrianapaez@hotmail.com', 'adriana paez', 'https://cholocatediana.com/', '2'), 
+(NULL, '890658098', 'Natural', '3789098', 'camilocifuente@hotmail.com', 'pedro estevez', 'https://misiontic.ucaldas.edu.co/', '2'),
+(NULL, '890658456', 'Juridico', '55512344', 'davidcifuente@hotmail.com', 'david cifuentes', 'https://arrozdiana.com/', '2'), 
+(NULL, '880658456', 'Juridico', '56512344', 'cesarcaicedo@hotmail.com', 'cesaar caicedo', 'https://arrozdiana.com/', '2'),
+(NULL, '90658098', 'Natural', '1.026.234.655', 'carrolinasalazar@hotmail.com', 'carollina salazar', 'https://azucarriopayla.com/', '2') ;
+
+
+INSERT INTO `tb_clientes` (`IdCliente`, `DocumentoIden`, `NombreCli`, `ApellidosCli`, `TelefonoClie1`, `TelefonoClie2`, `idDirreccion`) VALUES 
+(NULL, '98056098', 'manuel', 'vivas', '314 4095690', '56759089', '2'), 
+(NULL, '55256954', 'gilberto ', 'moncada', '310 4497890', '6659089', '2'), 
+(NULL, '2456954', 'Efrain ', 'perez', '311 5097890', '1259089', '2'),
+(NULL, '1026256954', 'Alberto ', 'morales', '321 4097890', '7659089', '2');
+
+INSERT INTO `tb_productos` (`IdProducto`, `Nombre`, `PrecioActual`, `Existencia`, `idProveedor`) VALUES
+(1, 'Cafe', 2500, 55, 1),
+(2, 'azucar', 3000, 100, 2),
+(3, 'papel higenico', 1500, 50, 2),
+(4, 'cuaderno cuadriculado', 35000, 150, 3),
+(5, 'frijol ', 2200, 180, 5);
+
+INSERT INTO `tb_categorias` (`IdCategoria`, `NombreCate`, `DescripcionGeneral`, `idProducto`) VALUES
+(1, 'priemera necesidad', 'estos articulos son los de mayor demanda', 2),
+(2, 'Aseo', 'productos para aseo general ya sea personal o hogar', 3),
+(3, 'papeleria', 'artículos escolares y de oficina', 4),
+(4, 'granos', 'productos esenciales de granos ', 5),
+(5, 'varios', 'productos varios', 1);
+
+INSERT INTO `tb_descuentomediopago` (`IdDescuMedioPago`, `DescripcionMedioPag`, `PorcentajeDesc`) VALUES
+(1, 'Tar_cre como la compra se difiere a varias cuotas el porcentaje es descuento es corto', 5),
+(2, 'Tar_deb por la compra porcentaje es descuento es mas alta', 10),
+(3, 'Efe como la compra es de contado se aplicara el mayor descuento posible', 16),
+(4, 'credi -como es finaciado no es el minimo descuento ', 2);
+
+INSERT INTO `tb_mediopago` (`IdMedioPago`, `TipoMedio`, `idDesMedioPago`) VALUES
+(2, 'Tarjeta Credito', 1),
+(3, 'Tarjeta Debito', 2),
+(4, 'Efectivo', 3),
+(5, 'credito', 4);
+
+INSERT INTO `tb_mediopago` (`IdMedioPago`, `TipoMedio`, `idDesMedioPago`) VALUES
+(2, 'Tarjeta Credito', 1),
+(3, 'Tarjeta Debito', 2),
+(4, 'Efectivo', 3),
+(5, 'credito', 4);
+
+INSERT INTO `tb_tb_ventas` (`IdVenta`, `FechaVenta`, `DescripcionGeneral`, `ValorDescuento`, `ValorTotal`, `idDetalleVenta`) VALUES
+(1, '25 julio 2022', 'se registrara la compra relizada segun cliente con sus productos comprados y su medio de pago', 5, 2200, 2),
+(2, '28 julio 2022', 'se vendió solo un articulo ', 5, 2200, 1),
+(3, '28 julio 2022', 'primera compra', 15, 55000, 3),
+(4, ' 29 julio 2022', 'segunda compra', 15, 120000, 4),
+(5, '29 julio 2022', 'primera compra', 10, 200000, 4);
+
+SELECT * FROM `tb_clientes` WHERE `IdCliente` = 1
+SELECT `ApellidosCli` FROM `tb_clientes` WHERE `IdCliente` = 2
+SELECT `ApellidosCli` FROM `tb_clientes` WHERE `IdCliente` = 2 and `idDirreccion` = 2
+SELECT `FechaVenta` FROM `tb_tb_ventas` WHERE `ValorTotal` < 10000
+SELECT `DescripcionGeneral` FROM `tb_tb_ventas` WHERE `ValorTotal` > 10000 or `idDetalleVenta` >2
+
+UPDATE `tb_direcciones` set `CalleCarrera` = 'Diagonal' WHERE `Ciudad` = 'bogota'
+UPDATE tb_descuentomediopago SET PorcentajeDesc = 5 where PorcentajeDesc = 16
+UPDATE `tb_categorias` SET `DescripcionGeneral` = 'artículos escolares, de oficina y de artes plasticas' WHERE `tb_categorias`.`IdCategoria` = 3;
+UPDATE `tb_clientes` SET `TelefonoClie1` = '5 66 90 09' WHERE `tb_clientes`.`IdCliente` = 5;
+
+DELETE FROM `tb_clientes` WHERE `tb_clientes`.`IdCliente` = 6"
+DELETE * FROM `tb_proveedores` WHERE `RepresentanteLegal` = 'carollina salazar'
+DELETE * FROM `tb_direcciones` WHERE  `CalleCarrera` = 'Diagonal' and `Numero` = '18 h 49'
+DELETE FROM `tb_direcciones` WHERE `tb_direcciones`.`IdDirreccion` = 6
+DELETE FROM `tb_direcciones` WHERE `tb_direcciones`.`Numero` = '18 h 49'
+

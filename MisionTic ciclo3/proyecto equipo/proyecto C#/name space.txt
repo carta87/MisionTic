@@ -1,0 +1,20 @@
+
+
+
+
+
+dotnet new sln  -o PeluqueriaStar.App 
+dotnet new classlib -o PeluqueriaStar.App.Persistencia
+dotnet new classlib -o PeluqueriaStar.App.Dominio 
+dotnet new webapi -o PeluqueriaStar.App.Servicios 
+
+dotnet new console -o PeluqueriaStar.App.consola
+
+dotnet add reference
+
+dotnet ef migrations add Entidades --startup-project 
+
+
+
+FirstOrDefault
+ 

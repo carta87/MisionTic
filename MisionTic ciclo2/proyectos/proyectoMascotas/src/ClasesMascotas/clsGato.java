@@ -1,0 +1,72 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ClasesMascotas;
+
+/**
+ *
+ * @author Esquivel_Cesar
+ */
+public class clsGato extends mascota{
+    private int idGato;
+     private String raza;
+ 
+
+    // CONSTRUCTOR
+    public clsGato(int idGato, String raza, int id, String codigo, String nombre, int anioNac, String color, String estadoSalud) {
+        super(id, codigo, nombre, anioNac, color, estadoSalud);
+        this.idGato = idGato;
+        this.raza = raza;
+    }
+    
+    
+
+    // METODO CAMINAR
+    
+    public void caminar(){
+        
+        System.out.println("El gato " + super.getNombre()+ " esta caminando ");
+        
+    }
+    
+    @Override
+    public void sonido(){
+         System.out.println("El gato" + super.getNombre() + " esta MaullandoSS ");
+    }
+    
+     @Override
+    public String tipoanimal() {
+        return "Gato"; 
+    }
+    
+    
+    /**
+     * @return the raza
+     */
+    public String getRaza() {
+        return raza;
+    }
+
+    /**
+     * @param raza the raza to set
+     */
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    /**
+     * @return the idGato
+     */
+    public int getIdGato() {
+        return idGato;
+    }
+
+    /**
+     * @param idGato the idGato to set
+     */
+    public void setIdGato(int idGato) {
+        this.idGato = idGato;
+    } 
+   
+}
