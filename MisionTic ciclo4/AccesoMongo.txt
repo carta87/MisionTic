@@ -1,0 +1,14 @@
+
+Admin
+Carta87.
+Carta87.
+
+
+IP Access List
+186.155.72.191/32
+
+Description
+My IP Address
+
+mongodb+srv://Admin:Carta87.@misiontic.sk8qo1h.mongodb.net/test
+
